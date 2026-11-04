@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #07503f;
+  --color-forest-deep: #053a2e;
+  --color-lime: #e8fe85;
+  --color-bone: #f1efdf;
+  --color-paper: #f7f7f4;
+  --color-white: #ffffff;
+  --color-ash: #efefef;
+  --color-charcoal: #212529;
+  --color-graphite: #353535;
+  --color-pewter: #6d6d6d;
+  --color-sky: #b2cee7;
+  --color-peach: #fceace;
+  --color-sage: #e6ecd5;
+  --color-moss: #c3cda7;
+
+  --font-serif: var(--font-serif), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-card: 18px;
+  --radius-pill: 110px;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.52;
+  letter-spacing: -0.011em;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+/* Editorial serif: headlines and pull quotes, never body copy. */
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+::selection {
+  background: var(--color-lime);
+  color: var(--color-charcoal);
+}
+
+/* Reveal states. html.fx is set before first paint (see layout) and only
+   when motion is allowed; GSAP then brings each element in. */
+html.fx [data-fx="lines"],
+html.fx [data-fx="up"],
+html.fx [data-fx="small"],
+html.fx [data-fx="stagger"] > * {
+  visibility: hidden;
+}
+.fx-line {
+  will-change: transform, opacity;
+}
+
+/* Headlines set over video/photo. */
+.hero-type {
+  font-weight: 500;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
